@@ -4,23 +4,24 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Maksym Pavlovskyi — Frontend Developer</title>
+   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-   <header>
+   <header class="site-header">
       <h1>Maksym Pavlovskyi</h1>
-      <p>
+      <p class="site-subtitle">
          Learning Frontend Development |
          Cybersecurity Student
       </p>
    </header>
 
-   <main>
+   <main class="page">
 
-      <section>
+      <section class="card">
          <h2>About Me</h2>
 
-         <div>
+         <div class="profile">
             <img
             src="img/images.webp"
             alt="Photo of Maksym Pavlovskyi"
@@ -28,9 +29,9 @@
             height="200"
             />
          </div>
-         <div>Maksym Pavlovskyi</div>
+         <div class="profile-name">Maksym Pavlovskyi</div>
 
-         <p>
+         <p class="text">
             I am a student at Lviv Polytechnic National University,
             studying Cybersecurity and Information Protection.
             Despite the strong focus on security, my true passion is
@@ -41,20 +42,20 @@
          </p>
       </section>
 
-      <section>
+      <section class="card">
          <h2>Education</h2>
 
-         <div>
+         <div class="education-item">
             <h3>Lviv Polytechnic National University</h3>
-            <p><strong>Major:</strong> Cybersecurity and Information Protection</p>
-            <p>Currently studying</p>
+            <p>Major: Cybersecurity and Information Protection</p>
+            <p class="tag">Currently studying</p>
          </div>
       </section>
 
-      <section>
+      <section class="card">
          <h2>Experience and projects</h2>
 
-         <ul>
+         <ul class="list">
             <li>Participated in a real project (order processing via QR code)</li>
             <li>Transport Enterprise Management System (course project)</li>
          </ul>
@@ -64,10 +65,10 @@
 
    </main>
    
-   <footer>
+   <footer class="site-footer">
       <h2>My Tech Stack</h2>
       
-      <ul>
+      <ul class="stack">
          <li>
             <img src="img/html-5-svgrepo-com.svg" alt="HTML" width="24" height="24" />
             <span>HTML</span>
@@ -97,10 +98,10 @@
             <span>Python (basic knowledge)</span>
          </li>
       </ul>
-      <section>
+      <section class="card contact">
          <h2>Contact</h2>
    
-         <div>
+         <div class="contact-list">
             <p>
                Phone:
                <a href="">+38 068 628 43 81</a>
@@ -113,7 +114,7 @@
             </p>
             <p>
                GitHub:
-               <a href="https://github.com/makspav-33">
+               <a href="https://github.com/makspav-33" target="_blank">
                   github.com/makspav-33
                </a>
             </p>
