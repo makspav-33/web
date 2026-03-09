@@ -14,6 +14,15 @@
          Learning Frontend Development |
          Cybersecurity Student
       </p>
+
+      <div class="theme-toggle">
+         <span class="theme-icon">☀️</span>
+         <label class="theme-switch">
+            <input id="theme-toggle" type="checkbox" aria-label="Toggle dark mode">
+            <span class="theme-slider"></span>
+         </label>
+         <span class="theme-icon">🌙</span>
+      </div>
    </header>
 
    <main class="page">
@@ -61,7 +70,35 @@
          </ul>
       </section>
 
+      <div id="modal-feedback" class="modal">
+      <div class="modal-content">
+         <button id="modal-close" class="modal-close" type="button">&times;</button>
+         <h2>Форма зворотного зв'язку</h2>
+         <form id="feedback-form" class="feedback-form" action="https://formspree.io/f/xdawadyv" method="POST">
+            <label>
+            Імʼя*:
+            <input type="text" name="name" required>
+            </label>
 
+            <label>
+            Email*:
+            <input type="email" name="email" required>
+            </label>
+
+            <label>
+            Телефон:
+            <input type="tel" name="phone">
+            </label>
+
+            <label>
+            Ваше повідомлення:
+            <textarea name="message" rows="4" required></textarea>
+            </label>
+
+            <button type="submit" class="feedback-submit">Відправити</button>
+         </form>
+      </div>
+      </div>
 
    </main>
    
