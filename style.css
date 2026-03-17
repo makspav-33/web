@@ -73,7 +73,6 @@ body {
     font-size: 1.05rem;
 }
 
-/* Theme toggle */
 .theme-toggle {
     margin-top: 16px;
     display: inline-flex;
@@ -251,7 +250,6 @@ body {
     text-decoration: underline;
 }
 
-/* Modal */
 .modal {
     display: none;
     position: fixed;

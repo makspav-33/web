@@ -32,14 +32,15 @@ function renderComments(comments) {
 
   const list = document.createElement('ol');
 
-  comments.forEach((comment) => {
-    const item = document.createElement('li');
-    item.innerHTML = `
-      <p><strong>${comment.name}</strong> (${comment.email})</p>
-      <p>${comment.body}</p>
-    `;
-    list.appendChild(item);
-  });
+  list.innerHTML = comments
+    .map(
+      (comment) => `
+      <li>
+        <p><strong>${comment.name}</strong> (${comment.email})</p>
+        <p>${comment.body}</p>
+      </li>
+    `
+    ).join('');
 
   section.appendChild(list);
   footer.appendChild(section);
@@ -47,26 +48,18 @@ function renderComments(comments) {
 getComents();
 
 
-window.addEventListener('DOMContentLoaded', function() {
+function showModal() {
   setTimeout(() => {
     document.getElementById('modal-feedback').style.display = 'block';
-  }, 60000);
+  }, 1000);
 
   document.getElementById('modal-close').onclick = function() {
     document.getElementById('modal-feedback').style.display = 'none';
   };
-});
+};
+  
+showModal()
 
-
-window.addEventListener('DOMContentLoaded', function() {
-  setTimeout(() => {
-    document.getElementById('modal-feedback').style.display = 'block';
-  }, 60000);
-
-  document.getElementById('modal-close').onclick = function() {
-    document.getElementById('modal-feedback').style.display = 'none';
-  };
-});
 
 function getAutoTheme() {
   const hour = new Date().getHours();
@@ -90,3 +83,8 @@ themeToggle.addEventListener('change', () => {
 setInterval(() => {
   applyTheme(getAutoTheme());
 }, 60000);
+
+
+
+
+
