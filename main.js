@@ -1,36 +1,37 @@
+localStorage.setItem("systemInfo", navigator.userAgent);
 
-localStorage.setItem('systemInfo', navigator.userAgent);
+const getSystemInfo = localStorage.getItem("systemInfo");
 
-const getSystemInfo = localStorage.getItem('systemInfo');
-
-const footer = document.querySelector('footer');
+const footer = document.querySelector("footer");
 
 footer.innerHTML += `
   <section class='card contact'>
     <h2>System info</h2>
     <span>${getSystemInfo}</span>
   </section>
-`
+`;
 
 async function getComents() {
   try {
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts/16/comments');
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/posts/16/comments",
+    );
     const data = await response.json();
     renderComments(data);
   } catch (error) {
-    alert('Сталася помилка: ', error);
+    alert("Сталася помилка: ", error);
   }
 }
 
 function renderComments(comments) {
-  const section = document.createElement('section');
-  section.className = 'card';
+  const section = document.createElement("section");
+  section.className = "card";
 
-  const title = document.createElement('h2');
-  title.textContent = 'Comments';
+  const title = document.createElement("h2");
+  title.textContent = "Comments";
   section.appendChild(title);
 
-  const list = document.createElement('ol');
+  const list = document.createElement("ol");
 
   list.innerHTML = comments
     .map(
@@ -39,52 +40,46 @@ function renderComments(comments) {
         <p><strong>${comment.name}</strong> (${comment.email})</p>
         <p>${comment.body}</p>
       </li>
-    `
-    ).join('');
+    `,
+    )
+    .join("");
 
   section.appendChild(list);
   footer.appendChild(section);
 }
 getComents();
 
-
 function showModal() {
   setTimeout(() => {
-    document.getElementById('modal-feedback').style.display = 'block';
-  }, 1000);
+    document.getElementById("modal-feedback").style.display = "block";
+  }, 60000);
 
-  document.getElementById('modal-close').onclick = function() {
-    document.getElementById('modal-feedback').style.display = 'none';
+  document.getElementById("modal-close").onclick = function () {
+    document.getElementById("modal-feedback").style.display = "none";
   };
-};
-  
-showModal()
+}
 
+showModal();
 
 function getAutoTheme() {
   const hour = new Date().getHours();
-  return (hour >= 7 && hour < 21) ? 'light' : 'dark';
+  return hour >= 7 && hour < 21 ? "light" : "dark";
 }
 
 function applyTheme(theme) {
-  document.body.setAttribute('data-theme', theme);
-  const themeToggle = document.getElementById('theme-toggle');
-  themeToggle.checked = (theme === 'dark');
+  document.body.setAttribute("data-theme", theme);
+  const themeToggle = document.getElementById("theme-toggle");
+  themeToggle.checked = theme === "dark";
 }
 
 applyTheme(getAutoTheme());
 
-const themeToggle = document.getElementById('theme-toggle');
-themeToggle.addEventListener('change', () => {
-  const theme = themeToggle.checked ? 'dark' : 'light';
+const themeToggle = document.getElementById("theme-toggle");
+themeToggle.addEventListener("change", () => {
+  const theme = themeToggle.checked ? "dark" : "light";
   applyTheme(theme);
 });
 
 setInterval(() => {
   applyTheme(getAutoTheme());
 }, 60000);
-
-
-
-
-
