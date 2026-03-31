@@ -6,9 +6,7 @@ import { AppService } from './app.service';
 
 @Module({
   imports: [
-    // Підключаємо модуль для роздачі статичних файлів
     ServeStaticModule.forRoot({
-      // Вказуємо шлях до папки public
       rootPath: join(__dirname, '..', 'public'),
     }),
   ],

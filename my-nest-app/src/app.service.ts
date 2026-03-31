@@ -4,14 +4,13 @@ import { ContactFormDto } from './contact.dto';
 
 @Injectable()
 export class AppService {
-  // Встав сюди свій API ключ від Resend
   private resend = new Resend('re_4UK6TTtu_92B4xePg664e4QE5BoByGdbP'); 
 
   async sendContactEmail(data: ContactFormDto) {
     try {
       const response = await this.resend.emails.send({
-        from: 'onboarding@resend.dev', // Тестовий відправник Resend
-        to: 'makspavlovskiy925@gmail.com',    // Вкажи СВОЮ пошту, на яку реєстрував Resend
+        from: 'onboarding@resend.dev',
+        to: 'makspavlovskiy925@gmail.com',
         subject: `Нове звернення з сайту: ${data.subject}`,
         html: `
           <h3>Нове повідомлення з форми контактів</h3>

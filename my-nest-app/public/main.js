@@ -59,16 +59,14 @@ function showModal() {
   };
 }
 
-const form = document.getElementById('feedback-form'); // Додай id="contactForm" у свій тег <form>
+const form = document.getElementById('feedback-form');
 
 if (form) {
   form.addEventListener('submit', async function(event) {
-    event.preventDefault(); // Зупиняємо стандартне перезавантаження сторінки
+    event.preventDefault();
 
-    // Збираємо дані з форми
     const formData = new FormData(form);
     
-    // Перетворюємо їх у звичайний об'єкт JavaScript
     const data = {
       name: formData.get('name'),
       email: formData.get('email'),
@@ -77,20 +75,18 @@ if (form) {
     };
 
     try {
-      // Відправляємо POST-запит на наш власний сервер NestJS
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json' // Кажемо серверу, що відправляємо JSON
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data) // Перетворюємо об'єкт у рядок JSON
+        body: JSON.stringify(data)
       });
 
       if (response.ok) {
         alert('Повідомлення успішно відправлено!');
-        form.reset(); // Очищаємо форму
+        form.reset();
       } else {
-        // Якщо NestJS повернув помилку валідації (наприклад, коротке повідомлення)
         const errorData = await response.json();
         console.error('Помилки валідації:', errorData.message);
         alert('Помилка валідації. Перевірте консоль для деталей.');
