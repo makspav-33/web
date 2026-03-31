@@ -4,7 +4,7 @@ import { ContactFormDto } from './contact.dto';
 
 @Injectable()
 export class AppService {
-  private resend = new Resend('re_4UK6TTtu_92B4xePg664e4QE5BoByGdbP'); 
+  private resend = new Resend(process.env.RESEND_API_KEY); 
 
   async sendContactEmail(data: ContactFormDto) {
     try {
