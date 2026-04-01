@@ -10,7 +10,7 @@ exports.AppService = void 0;
 const common_1 = require("@nestjs/common");
 const resend_1 = require("resend");
 let AppService = class AppService {
-    resend = new resend_1.Resend('re_dfcudku1_CUGtU7cdTsd7sgADoTdTsVH7');
+    resend = new resend_1.Resend(process.env.RESEND_API_KEY);
     async sendContactEmail(data) {
         try {
             const response = await this.resend.emails.send({
